@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Onboarding Form</title>
+    <link rel="stylesheet" href="./Personalinfo_Dashboard.html">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.801);
+}
+
+.form-content h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.776);
+}
+
+.form-content .rows {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.form-actions button {
+    padding: 12px 25px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-actions button:hover {
+    background-color: #0056b3;
+}
+
+
+</style>
+    
+</head>
+<body>
+    <div class="form-content">
+        <h1 style="color: #0056b3;">Employee Onboarding Form</h1>
+        
+        <form id="onboardingForm" novalidate>
+            <div class="rows">
+                <fieldset>
+                    <legend style="color: #0056b3;">Personal Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            name="fullName" 
+                            required 
+                            pattern="^[A-Z](?=.*[A-Z])[A-Za-z\s]{3,}$"
+                            title="Name must start with a capital letter and contain only letters and spaces."
+                        >
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="Empid">Emp-Id</label>
+                        <input 
+                            type="text" 
+                            id="Empid" 
+                            name="Empid" 
+                            required 
+                            pattern="^[A-Z]{3}[0-9]+$"
+                            title="Emp-ID must start with 3 uppercase letters followed by numbers."
+                        >
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input 
+                            type="tel" 
+                            id="phonenumber" 
+                            name="phone" 
+                            required 
+                            pattern="^[0-9]{10}$"
+                            title="Phone number must be 10 digits."
+                        >
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required min="<?php echo date('Y-m-d'); ?>">
+                        <small class="error-message"></small>
+                    </div>
+                </fieldset>
+                
+             
+                <fieldset>
+                    <legend  style="color: #0056b3;">Address</legend>
+    
+                    <div class="form-group">
+                        <label for="streetAddress">Street Address</label>
+                        <input type="text" id="streetAddress" name="streetAddress" required>
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required>
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" required>
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="zipCode">Zip Code</label>
+                        <input 
+                            type="text" 
+                            id="zipCode" 
+                            name="zipCode" 
+                            required 
+                            pattern="^\d{6}$"
+                            title="Zip code must be in the format: 12345 or 12345-6789."
+                        >
+                        <small class="error-message"></small>
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend  style="color: #0056b3;">Banking Information</legend>
+    
+                    <div class="form-group">
+                        <label for="bankName">Bank Name</label>
+                        <input type="text" id="bankName" name="bankName" required>
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="phonenumber">Mobile Number</label>
+                        <input type="text" id="phonenumber" name="phonenumber" required pattern="^[0-9]{10}$">
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="accountNumber">Account Number</label>
+                        <input type="text" id="accountNumber" name="accountNumber" required pattern="^[0-9]{8,20}$">
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="confirmAccountNumber">Confirm Account Number</label>
+                        <input type="text" id="confirmAccountNumber" name="confirmAccountNumber" required pattern="^[0-9]{8,20}$">
+                        <small class="error-message"></small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="IFSCNumber">IFSC Number</label>
+                        <input type="text" id="IFSCNumber" name="IFSCNumber" required pattern="^[A-Za-z]{4}[0-9]{7}$">
+                        <small class="error-message"></small>
+                    </div>
+                </fieldset>
+    
+                <fieldset>
+                    <legend  style="color: #0056b3;">Qualification</legend>
+                    <div class="form-group">
+                        <label for="degree">Highest Degree</label>
+                        <input type="text" id="degree" name="degree" required>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="institution">Institution</label>
+                        <input type="text" id="institution" name="institution" required>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="graduationYear">Year of Graduation</label>
+                        <input type="number" id="graduationYear" name="graduationYear" required min="1900" max="2099">
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="degreeCertificate">Upload Degree Certificate</label>
+                        <input type="file" id="degreeCertificate" name="degreeCertificate" accept=".jpg, .jpeg, .png, .pdf" required>
+                        <small class="error-message"></small>
+                    </div>
+                </fieldset>
+    
+                <fieldset>  
+                    <legend  style="color: #0056b3;">Experience(optional)</legend>
+                    <div class="form-group">
+                        <label for="job-title">Job Title</label>
+                        <input type="text" id="job-title" name="jobTitle" minlength="2" maxlength="100" pattern="^[A-Z][a-zA-Z\s]+$"
+                        title="Job Title must start with a capital letter and contain only letters and spaces."
+                        >
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-name">Company Name</label>
+                        <input type="text" id="company-name" name="companyName" minlength="2" maxlength="100" pattern="^[A-Z][a-zA-Z\s]+$"
+                        title="Company Name must start with a capital letter and contain only letters and spaces."
+                        >
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" minlength="2" maxlength="100" pattern="^[A-Z][a-zA-Z\s]+$"
+                        title="Location must start with a capital letter and contain only letters and spaces."
+                        >
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">Start Date</label>
+                        <input type="date" id="start-date" name="startDate">
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">End Date</label>
+                        <input type="date" id="end-date" name="endDate">
+                        <small class="error-message"></small>
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend  style="color: #0056b3;">Job Details</legend>
+                    <div class="form-group">
+                        <label for="job-role">Job Role</label>
+                        <input type="text" id="job-role" name="jobRole" required>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" id="startDate" name="startDate" required >
+                        <small class="error-message"></small>
+
+                    </div>
+         
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <input type="text" id="department" name="department" required>
+                        <small class="error-message"></small>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Position</label>
+                        <input type="text" id="position" name="position" required>
+                        <small class="error-message"></small>
+
+                    </div>
+                </fieldset>
+            </div>
+    
+            <div class="form-actions">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+   <script>
+        window.onload = function () {
+        const today = new Date().toISOString().split("T")[0];
+        
+        document.getElementById("dob").setAttribute("max", today);
+        
+   
+        document.getElementById("startDate").setAttribute("max", today);
+        
+        const startDateInput = document.getElementById("start-date");
+        const endDateInput = document.getElementById("end-date");
+
+        startDateInput.setAttribute("max", today);
+
+        startDateInput.addEventListener("change", function () {
+            if (this.value) {
+                endDateInput.setAttribute("min", this.value);
+                document.querySelector("#start-date + .error-message").textContent = "";
+            }
+        });
+
+        endDateInput.addEventListener("change", function () {
+            if (this.value < startDateInput.value) {
+                document.querySelector("#end-date + .error-message").textContent =
+                    "End date should not be earlier than the start date.";
+            } else {
+                document.querySelector("#end-date + .error-message").textContent = "";
+            }
+        });
+    }
+   document.getElementById("onboardingForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    const fields = [
+        { id: "bankName", pattern: /.+/, errorMessage: "Please enter the name of your bank." },
+        { id: "phonenumber", pattern: /^[0-9]{10}$/, errorMessage: "Please enter a valid 10-digit phone number." },
+        { id: "accountNumber", pattern: /^[0-9]{8,20}$/, errorMessage: "Please enter a valid account number." },
+        { id: "confirmAccountNumber", pattern: /^[0-9]{8,20}$/, errorMessage: "Account numbers must match." },
+        { id: "IFSCNumber", pattern: /^[A-Za-z]{4}[0-9]{7}$/, errorMessage: "Please enter a valid IFSC number." },
+        { id: "fullName", pattern: /^[A-Z][a-zA-Z\s]+$/, errorMessage: "Name must start with a capital letter." },
+{
+    id: "dob",
+    pattern: /.+/, 
+    errorMessage: "Please select your date of birth.",
+},
+        { id: "email", pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, errorMessage: "Please enter a valid email address." },
+        {
+            id: "Empid",
+            pattern: /^[A-Z]{3}0[0-9]+$/,
+            errorMessage: "Emp-ID must start with 3 uppercase letters followed by numbers.",
+        },
+        {
+            id: "streetAddress",
+            pattern: /.+/,
+            errorMessage: "Please enter your street address.",
+        },
+        {
+            id: "city",
+            pattern: /.+/,
+            errorMessage: "Please enter your city.",
+        },
+        {
+            id: "state",
+            pattern: /.+/,
+            errorMessage: "Please enter your state.",
+        },
+        {
+            id: "zipCode",
+            pattern: /^\d{6}$/,
+            errorMessage: "Please enter a valid zip code (e.g., 123456).",
+        },
+        {
+    id: "degree",
+    pattern: /.+/,
+    errorMessage: "Please enter your highest degree.",
+},
+{
+    id: "institution",
+    pattern: /.+/,
+    errorMessage: "Please enter the name of your institution.",
+},
+{
+    id: "graduationYear",
+    pattern: /^(19|20)\d{2}$/,
+    errorMessage: "Please enter a valid graduation year between 1900 and 2099.",
+},
+{
+    id: "degreeCertificate",
+    pattern: /.+/,
+    errorMessage: "Please upload your degree certificate.",
+},
+{
+    id: "job-role",
+    pattern: /^[a-zA-Z\s]{2,100}$/,
+    errorMessage: "Job Title must be at least 2 characters long and only contain letters and spaces.",
+},
+{
+    id: "startDate",
+    pattern: /.+/,
+    errorMessage: "Start Date must be a valid date .",
+},
+{
+    id: "department",
+    pattern: /^[a-zA-Z\s]{2,100}$/,
+    errorMessage: "Department must be at least 2 characters long and only contain letters and spaces.",
+},
+{
+    id: "position",
+    pattern: /^[a-zA-Z\s]{2,100}$/,
+    errorMessage: "Position must be at least 2 characters long and only contain letters and spaces.",
+}
+
+];
+
+    let isValid = true;
+    
+
+    fields.forEach((field) => {
+        const inputElement = document.getElementById(field.id);
+        if (!inputElement) return; 
+        const errorElement = inputElement.nextElementSibling;
+
+        if (!field.pattern.test(inputElement.value.trim())) {
+            errorElement.textContent = field.errorMessage;
+            errorElement.style.color = "red";
+            isValid = false;
+        } else {
+            errorElement.textContent = "";
+        }
+    });
+    
+    const accountNumber = document.getElementById("accountNumber")?.value.trim();
+    const confirmAccountNumber = document.getElementById("confirmAccountNumber")?.value.trim();
+    if (accountNumber !== confirmAccountNumber) {
+        const confirmErrorElement = document.getElementById("confirmAccountNumber")?.nextElementSibling;
+        confirmErrorElement.textContent = "Account numbers must match.";
+        confirmErrorElement.style.color = "red";
+        isValid = false;
+    }
+
+    if (isValid) {
+        localStorage.setItem("onboardingData", JSON.stringify(data));
+        alert("Form successfully submitted!");
+        window.location.href = "Assert.html";
+    }
+});
+</script>
+
+</body>
+</html>
